@@ -69,9 +69,10 @@ try {
     echo "Sexo: " . ($genero == 'F' ? 'Femenino' : 'Masculino') . "<br>";
 
     // Mostrar preferencias y otras respuestas
-    echo "Frecuencia personal: " . $frecuencia_usted . "<br>";
+    echo "Frecuencia uso propio: " . $frecuencia_usted . "<br>";
     echo "Frecuencia beneficiarios: " . $frecuencia_beneficiarios . "<br>";
-    echo "Preferencias gastronómicas: " . $gastronomicas . "<br>";
+    echo  "<br>¿Marque la razón por la que usted está afiliado siendo 5 poco importante y 1 muy importante? <br>";
+    echo "<br> Preferencias gastronómicas: " . $gastronomicas . "<br>";
     echo "Preferencias culturales: " . $culturales . "<br>";
     echo "Preferencias deportivas: " . $deportivas . "<br>";
     echo "Preferencias sociales: " . $sociales . "<br>";
