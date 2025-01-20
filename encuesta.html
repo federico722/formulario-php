@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Encuesta de calidad</title>
+</head>
+<body>
+
+    <header class="bg-light py-4">
+        <div class="container text-center">
+              <h1>Cuestionario</h1>
+              <p>Tu información es muy importante para nosotros, nos permitirá brindarte un mejor servicio y no te tomará más de 5 minutos.</p>
+        </div>
+    </header>
+
+    <main class="container my-4">
+    <form action="php\enviar_formulario.php" method="post" ype="multipart/form-data" id="formulario">
+
+        <div class="seccion_datos_personales bg-light p-4 rounded shadow-sm">
+
+            <div class="campo_modalidad mb-3">
+                <label for="modalidad"  class="form-label">Modalidad:</label>
+                <select name="modalidad" id="modalidad" class="form-select">
+                    <option value="Persona Natural">Persona Natural</option>
+                    <option value="Persona Juridica">Persona Juridica</option>
+                    <option value="Representante Adjunto">Representante Adjunto</option>
+                    <option value="Socio Senior">Socio Senior</option>
+                    <option value="Afiliado Temporal">Afiliado Temporal</option>
+                    <option value="Unipersonal">Unipersonal</option>
+                </select>
+            </div>
+            <div class="campo_numero_derecho mb-3">
+                <label for="numero_derecho" class="form-label">Número de derecho:</label>
+                <input type="text" id="numero_derecho" name="numero_derecho" class="numero_derecho form-control">
+            </div>
+
+            <div class="campo_nombre_apellido_titular mb-3">
+                <label for="nombre_apellido_titular" class="form-label">Nombres y Apellidos del titular:</label>
+                <input type="text" id="nombre_apellido_titular" name="nombre_apellido_titular"  class="form-control">
+            </div>
+
+            <div class="campo_tipo_identificacion mb-3">
+                <label for="tipo_identificacion" class="form-label">Tipo de identificación</label>
+                <select name="tipo_identificacion" id="tipo_identificacion" class="form-select">
+                    <option value="Cédula">Cédula</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Cédula de extranjeria">Cédula de extranjeria</option>
+                </select>
+            </div>
+
+            <div class="campo_numero_identificacion mb-3">
+                <label for="numero_identificacion" class="form-label">Número de identificación: </label>
+                <input type="text" id="numero_identificacion" name="numero_identificacion" class="form-control">
+            </div>
+
+            <div class="campo_genero mb-3">
+                <label for="genero" class="form-label">Sexo:</label>
+                <div class="campo_genero_f form-check">
+                    <input type="radio" name="genero" value="F" class="form-check-input">
+                    <label for="genero_f" class="form-check-label">F</label>
+                </div>
+                <div class="campo_genero_m form-check">
+                    <input type="radio" name="genero" value="M" class="form-check-input">
+                    <label for="genero_m" class="form-check-label" >M</label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="seccion_1_datos_generales bg-light p-4 rounded shadow-sm">
+            <div class="campo_frecuencia_servicios_club mb-4">
+                <h6>¿Con qué frecuencia utilizas los servicios del club?</h6>
+            
+                <div class="row">
+                    <!-- Para el usuario -->
+                    <div class="col-md-6 mb-3">
+                        <h6>Frecuencia - Usted</h6>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_usted" value="Diario" id="frecuencia_usted_diario" class="form-check-input">
+                            <label for="frecuencia_usted_diario" class="form-check-label">Diario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_usted" value="Varias veces por semana" id="frecuencia_usted_variadasemana" class="form-check-input">
+                            <label for="frecuencia_usted_variadasemana" class="form-check-label">Varias veces por semana</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_usted" value="Una vez a la semana" id="frecuencia_usted_una_vuelta" class="form-check-input">
+                            <label for="frecuencia_usted_una_vuelta" class="form-check-label">Una vez a la semana</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_usted" value="Menos de una vez al mes" id="frecuencia_usted_menos" class="form-check-input">
+                            <label for="frecuencia_usted_menos" class="form-check-label">Menos de una vez al mes</label>
+                        </div>
+                    </div>
+            
+                    <!-- Para los beneficiarios -->
+                    <div class="col-md-6 mb-3">
+                        <h6>Frecuencia - Sus beneficiarios</h6>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_beneficiarios" value="Diario" id="frecuencia_beneficiarios_diario" class="form-check-input">
+                            <label for="frecuencia_beneficiarios_diario" class="form-check-label">Diario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_beneficiarios" value="Varias veces por semana" id="frecuencia_beneficiarios_variadasemana" class="form-check-input">
+                            <label for="frecuencia_beneficiarios_variadasemana" class="form-check-label">Varias veces por semana</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_beneficiarios" value="Una vez a la semana" id="frecuencia_beneficiarios_una_vuelta" class="form-check-input">
+                            <label for="frecuencia_beneficiarios_una_vuelta" class="form-check-label">Una vez a la semana</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="frecuencia_beneficiarios" value="Menos de una vez al mes" id="frecuencia_beneficiarios_menos" class="form-check-input">
+                            <label for="frecuencia_beneficiarios_menos" class="form-check-label">Menos de una vez al mes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo_preferencias mb-4">
+                <h6>¿Marque la razón por la que usted está afiliado siendo 5 poco importante y 1 muy importante?</h6>
+                
+                <!-- Gastronómicas -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="gastronomicas_satisfaccion">Gastronómicas</label>
+                        <div class="form-check">
+                            <input type="radio" name="gastronomicas_satisfaccion" id="gastronomicas_satisfaccion_1" value="1" class="form-check-input">
+                            <label for="gastronomicas_satisfaccion_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="gastronomicas_satisfaccion" id="gastronomicas_satisfaccion_2" value="2" class="form-check-input">
+                            <label for="gastronomicas_satisfaccion_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="gastronomicas_satisfaccion" id="gastronomicas_satisfaccion_3" value="3" class="form-check-input">
+                            <label for="gastronomicas_satisfaccionv_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="gastronomicas_satisfaccion" id="gastronomicas_satisfaccions_4" value="4" class="form-check-input">
+                            <label for="gastronomicas_satisfaccion_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="gastronomicas_satisfaccion" id="gastronomicas_satisfaccion_5" value="5" class="form-check-input">
+                            <label for="gastronomicas_satisfaccio_5" class="form-check-label">5</label>
+                        </div>
+                    </div>
+            
+                    <!-- Culturales -->
+                    <div class="col-md-6">
+                        <label for="culturales">Culturales</label>
+                        <div class="form-check">
+                            <input type="radio" name="culturales" id="culturales_1" value="1" class="form-check-input">
+                            <label for="culturales_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="culturales" id="culturales_2" value="2" class="form-check-input">
+                            <label for="culturales_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="culturales" id="culturales_3" value="3" class="form-check-input">
+                            <label for="culturales_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="culturales" id="culturales_4" value="4" class="form-check-input">
+                            <label for="culturales_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="culturales" id="culturales_5" value="5" class="form-check-input">
+                            <label for="culturales_5" class="form-check-label">5</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Deportivas -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="deportivas">Deportivas</label>
+                        <div class="form-check">
+                            <input type="radio" name="deportivas" id="deportivas_1" value="1" class="form-check-input">
+                            <label for="deportivas_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="deportivas" id="deportivas_2" value="2" class="form-check-input">
+                            <label for="deportivas_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="deportivas" id="deportivas_3" value="3" class="form-check-input">
+                            <label for="deportivas_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="deportivas" id="deportivas_4" value="4" class="form-check-input">
+                            <label for="deportivas_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="deportivas" id="deportivas_5" value="5" class="form-check-input">
+                            <label for="deportivas_5" class="form-check-label">5</label>
+                        </div>
+                    </div>
+            
+                    <!-- Sociales -->
+                    <div class="col-md-6">
+                        <label for="sociales">Sociales</label>
+                        <div class="form-check">
+                            <input type="radio" name="sociales" id="sociales_1" value="1" class="form-check-input">
+                            <label for="sociales_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="sociales" id="sociales_2" value="2" class="form-check-input">
+                            <label for="sociales_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="sociales" id="sociales_3" value="3" class="form-check-input">
+                            <label for="sociales_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="sociales" id="sociales_4" value="4" class="form-check-input">
+                            <label for="sociales_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="sociales" id="sociales_5" value="5" class="form-check-input">
+                            <label for="sociales_5" class="form-check-label">5</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Otra cual -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        
+                        <div>
+                            <label for="text_cual">¿Otra cual?</label>
+                            <input type="text" name="text_cual" class="form_input_eleccion">
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="otra_cual" id="otra_cual_1" value="1" class="form-check-input">
+                            <label for="otra_cual_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="otra_cual" id="otra_cual_2" value="2" class="form-check-input">
+                            <label for="otra_cual_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="otra_cual" id="otra_cual_3" value="3" class="form-check-input">
+                            <label for="otra_cual_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="otra_cual" id="otra_cual_4" value="4" class="form-check-input">
+                            <label for="otra_cual_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="otra_cual" id="otra_cual_5" value="5" class="form-check-input">
+                            <label for="otra_cual_5" class="form-check-label">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo_preferencias_comunicacion mb-4">
+                 <!-- origen etiqueta medios de comunicacion -->
+                <h6>¿En orden de importancia marque los medios de comunicación de su preferencia siendo 1 el más importante y 8 el menos importante?</h6>
+    
+                <!-- App para socios -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="app_socios">App para socios</label>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_1" value="1" class="form-check-input">
+                            <label for="app_socios_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_2" value="2" class="form-check-input">
+                            <label for="app_socios_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_3" value="3" class="form-check-input">
+                            <label for="app_socios_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_4" value="4" class="form-check-input">
+                            <label for="app_socios_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_5" value="5" class="form-check-input">
+                            <label for="app_socios_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_6" value="6" class="form-check-input">
+                            <label for="app_socios_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_7" value="7" class="form-check-input">
+                            <label for="app_socios_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="app_socios" id="app_socios_8" value="8" class="form-check-input">
+                            <label for="app_socios_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="col-md-6">
+                        <label for="whatsapp">WhatsApp</label>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_1" value="1" class="form-check-input">
+                            <label for="whatsapp_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_2" value="2" class="form-check-input">
+                            <label for="whatsapp_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_3" value="3" class="form-check-input">
+                            <label for="whatsapp_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_4" value="4" class="form-check-input">
+                            <label for="whatsapp_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_5" value="5" class="form-check-input">
+                            <label for="whatsapp_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_6" value="6" class="form-check-input">
+                            <label for="whatsapp_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_7" value="7" class="form-check-input">
+                            <label for="whatsapp_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="whatsapp" id="whatsapp_8" value="8" class="form-check-input">
+                            <label for="whatsapp_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mail -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="mail">Mail</label>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_1" value="1" class="form-check-input">
+                            <label for="mail_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_2" value="2" class="form-check-input">
+                            <label for="mail_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_3" value="3" class="form-check-input">
+                            <label for="mail_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_4" value="4" class="form-check-input">
+                            <label for="mail_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_5" value="5" class="form-check-input">
+                            <label for="mail_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_6" value="6" class="form-check-input">
+                            <label for="mail_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_7" value="7" class="form-check-input">
+                            <label for="mail_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mail" id="mail_8" value="8" class="form-check-input">
+                            <label for="mail_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+
+                    <!-- Revista Somos Campestre -->
+                    <div class="col-md-6">
+                        <label for="revista_somos">Revista Somos Campestre (mensual)</label>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_1" value="1" class="form-check-input">
+                            <label for="revista_somos_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_2" value="2" class="form-check-input">
+                            <label for="revista_somos_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_3" value="3" class="form-check-input">
+                            <label for="revista_somos_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_4" value="4" class="form-check-input">
+                            <label for="revista_somos_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_5" value="5" class="form-check-input">
+                            <label for="revista_somos_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_6" value="6" class="form-check-input">
+                            <label for="revista_somos_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_7" value="7" class="form-check-input">
+                            <label for="revista_somos_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="revista_somos" id="revista_somos_8" value="8" class="form-check-input">
+                            <label for="revista_somos_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Instagram -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="instagram">Instagram</label>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_1" value="1" class="form-check-input">
+                            <label for="instagram_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_2" value="2" class="form-check-input">
+                            <label for="instagram_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_3" value="3" class="form-check-input">
+                            <label for="instagram_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_4" value="4" class="form-check-input">
+                            <label for="instagram_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_5" value="5" class="form-check-input">
+                            <label for="instagram_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_6" value="6" class="form-check-input">
+                            <label for="instagram_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_7" value="7" class="form-check-input">
+                            <label for="instagram_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="instagram" id="instagram_8" value="8" class="form-check-input">
+                            <label for="instagram_8" class="form-check-label">8</label>
+                        </div>
+                        <!-- Más opciones... -->
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="col-md-6">
+                        <label for="facebook">Facebook</label>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_1" value="1" class="form-check-input">
+                            <label for="facebook_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_2" value="2" class="form-check-input">
+                            <label for="facebook_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_3" value="3" class="form-check-input">
+                            <label for="facebook_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_4" value="4" class="form-check-input">
+                            <label for="facebook_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_5" value="5" class="form-check-input">
+                            <label for="facebook_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_6" value="6" class="form-check-input">
+                            <label for="facebook_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_7" value="7" class="form-check-input">
+                            <label for="facebook_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="facebook" id="facebook_8" value="8" class="form-check-input">
+                            <label for="facebook_8" class="form-check-label">8</label>
+                        </div>
+                        <!-- Más opciones... -->
+                    </div>
+                </div>
+
+                <!-- Habladores del restaurante -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="habladores">Habladores del restaurante</label>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_1" value="1" class="form-check-input">
+                            <label for="habladores_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_2" value="2" class="form-check-input">
+                            <label for="habladores_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_3" value="3" class="form-check-input">
+                            <label for="habladores_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_4" value="4" class="form-check-input">
+                            <label for="habladores_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_5" value="5" class="form-check-input">
+                            <label for="habladores_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_6" value="6" class="form-check-input">
+                            <label for="habladores_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_7" value="7" class="form-check-input">
+                            <label for="habladores_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="habladores" id="habladores_8" value="8" class="form-check-input">
+                            <label for="habladores_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje de texto -->
+                    <div class="col-md-6">
+                        <label for="mensaje_texto">Mensaje de texto</label>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_1" value="1" class="form-check-input">
+                            <label for="mensaje_texto_1" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_2" value="2" class="form-check-input">
+                            <label for="mensaje_texto_2" class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_3" value="3" class="form-check-input">
+                            <label for="mensaje_texto_3" class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_4" value="4" class="form-check-input">
+                            <label for="mensaje_texto_4" class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_5" value="5" class="form-check-input">
+                            <label for="mensaje_texto_5" class="form-check-label">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_6" value="6" class="form-check-input">
+                            <label for="mensaje_texto_6" class="form-check-label">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto" id="mensaje_texto_7" value="7" class="form-check-input">
+                            <label for="mensaje_texto_7" class="form-check-label">7</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="mensaje_texto"  id="mensaje_texto_8" value="8" class="form-check-input">
+                            <label for="mensaje_texto_8" class="form-check-label">8</label>
+                        </div>
+                    </div>
+
+            </div>
+
+        <!-- Etiqueta final medios de comunicacion  -->
+
+        </div>
+
+        <div class="satisfaccion_general ">
+            <!-- Satisfacción general con el club -->
+            <div class="satisfaccion_club mb-4">
+                <h6>En una escala del 1 al 5, ¿cómo calificas tu satisfacción general con el club?</h6>
+                <div class="form-check">
+                    <input type="radio" name="satisfaccion_general" id="satisfaccion_general_1" value="1" class="form-check-input">
+                    <label for="satisfaccion_general_1" class="form-check-label">1. Muy insatisfecho</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="satisfaccion_general" id="satisfaccion_general_2" value="2" class="form-check-input">
+                    <label for="satisfaccion_general_2" class="form-check-label">2. Insatisfecho</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="satisfaccion_general" id="satisfaccion_general_3" value="3" class="form-check-input">
+                    <label for="satisfaccion_general_3" class="form-check-label">3. normal</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="satisfaccion_general" id="satisfaccion_general_4" value="4" class="form-check-input">
+                    <label for="satisfaccion_general_4" class="form-check-label">4. Satisfecho</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="satisfaccion_general" id="satisfaccion_general_5" value="5" class="form-check-input">
+                    <label for="satisfaccion_general_5" class="form-check-label">5: Muy satisfecho</label>
+                </div>
+            </div>
+        
+            <!-- Satisfacción en áreas específicas -->
+            <div class="satisfaccion_areas">
+                <h6>Califica tu nivel de satisfacción en las siguientes áreas:</h6>
+        
+                <!-- Actividades deportivas -->
+                <div class="mb-3">
+                    <label for="deportivas">Actividades deportivas</label>
+                    <div class="form-check">
+                        <input type="radio" name="deportivas" id="deportivas_1" value="1" class="form-check-input">
+                        <label for="deportivas_1" class="form-check-label">1. Muy insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="deportivas" id="deportivas_2" value="2" class="form-check-input">
+                        <label for="deportivas_2" class="form-check-label">2. Insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="deportivas" id="deportivas_3" value="3" class="form-check-input">
+                        <label for="deportivas_3" class="form-check-label">3. normal</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="deportivas" id="deportivas_4" value="4" class="form-check-input">
+                        <label for="deportivas_4" class="form-check-label">4. Satisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="deportivas" id="deportivas_5" value="5" class="form-check-input">
+                        <label for="deportivas_5" class="form-check-label">5: Muy satisfecho</label>
+                    </div>
+                </div>
+        
+                <!-- Experiencias gastronómicas -->
+                <div class="mb-3">
+                    <label for="gastronomicas">Experiencias gastronómicas</label>
+                    <div class="form-check">
+                        <input type="radio" name="gastronomicas" id="gastronomicas_1" value="1" class="form-check-input">
+                        <label for="gastronomicas_1" class="form-check-label">1. Muy insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="gastronomicas" id="gastronomicas_2" value="2" class="form-check-input">
+                        <label for="gastronomicas_2" class="form-check-label">2. Insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="gastronomicas" id="gastronomicas_3" value="3" class="form-check-input">
+                        <label for="gastronomicas_3" class="form-check-label">3. normal</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="gastronomicas" id="gastronomicas_4" value="4" class="form-check-input">
+                        <label for="gastronomicas_4" class="form-check-label">4. Satisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="gastronomicas" id="gastronomicas_5" value="5" class="form-check-input">
+                        <label for="gastronomicas_5" class="form-check-label">5: Muy satisfecho</label>
+                    </div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="culturales">Actividades culturales</label>
+                    <div class="form-check">
+                        <input type="radio" name="culturales" id="culturales_1" value="1" class="form-check-input">
+                        <label for="culturales_1" class="form-check-label">1. Muy insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="culturales" id="culturales_2" value="2" class="form-check-input">
+                        <label for="culturales_2" class="form-check-label">2. Insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="culturales" id="culturales_3" value="3" class="form-check-input">
+                        <label for="culturales_3" class="form-check-label">3. normal</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="culturales" id="culturales_4" value="4" class="form-check-input">
+                        <label for="culturales_4" class="form-check-label">4. Satisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="culturales" id="culturales_5" value="5" class="form-check-input">
+                        <label for="culturales_5" class="form-check-label">5. Muy satisfecho</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="sociales">Espacios sociales</label>
+                    <div class="form-check">
+                        <input type="radio" name="sociales" id="sociales_1" value="1" class="form-check-input">
+                        <label for="sociales_1" class="form-check-label">1. Muy insatisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="sociales" id="sociales_2" value="2" class="form-check-input">
+                        <label for="sociales_2" class="form-check-label">2. Insatisfecho </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="sociales" id="sociales_3" value="3" class="form-check-input">
+                        <label for="sociales_3" class="form-check-label">3. normal</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="sociales" id="sociales_4" value="4" class="form-check-input">
+                        <label for="sociales_4" class="form-check-label">4. Satisfecho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="sociales" id="sociales_5" value="5" class="form-check-input">
+                        <label for="sociales_5" class="form-check-label">5.Muy satisfecho</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="infraestructura">Infraestructura y confort</label>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura" id="infraestructura_1" value="1" class="form-check-input">
+                        <label for="infraestructura_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura" id="infraestructura_2" value="2" class="form-check-input">
+                        <label for="infraestructura_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura" id="infraestructura_3" value="3" class="form-check-input">
+                        <label for="infraestructura_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura" id="infraestructura_4" value="4" class="form-check-input">
+                        <label for="infraestructura_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura" id="infraestructura_5" value="5" class="form-check-input">
+                        <label for="infraestructura_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="servicio">Atención y servicio al cliente</label>
+                    <div class="form-check">
+                        <input type="radio" name="servicio" id="servicio_1" value="1" class="form-check-input">
+                        <label for="servicio_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="servicio" id="servicio_2" value="2" class="form-check-input">
+                        <label for="servicio_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="servicio" id="servicio_3" value="3" class="form-check-input">
+                        <label for="servicio_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="servicio" id="servicio_4" value="4" class="form-check-input">
+                        <label for="servicio_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="servicio" id="servicio_5" value="5" class="form-check-input">
+                        <label for="servicio_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="comunicacion">Información y comunicación</label>
+                    <div class="form-check">
+                        <input type="radio" name="comunicacion" id="comunicacion_1" value="1" class="form-check-input">
+                        <label for="comunicacion_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="comunicacion" id="comunicacion_2" value="2" class="form-check-input">
+                        <label for="comunicacion_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="comunicacion" id="comunicacion_3" value="3" class="form-check-input">
+                        <label for="comunicacion_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="comunicacion" id="comunicacion_4" value="4" class="form-check-input">
+                        <label for="comunicacion_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="comunicacion" id="comunicacion_5" value="5" class="form-check-input">
+                        <label for="comunicacion_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="preferencias_necesidades">
+            <p>¿Qué tan importantes son para ti que el Club invierta en los siguientes puntos? (1: Nada importante, 5: Muy importante)</p>
+            
+            <!-- Modernización de infraestructura -->
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+                <label for="infraestructura_modernizacion" class="me-3">Modernización de infraestructura</label>
+                <div class="d-flex">
+                    <div class="form-check me-2">
+                        <input type="radio" name="infraestructura_modernizacion" id="infraestructura_modernizacion_1" value="1" class="form-check-input">
+                        <label for="infraestructura_modernizacion_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="infraestructura_modernizacion" id="infraestructura_modernizacion_2" value="2" class="form-check-input">
+                        <label for="infraestructura_modernizacion_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="infraestructura_modernizacion" id="infraestructura_modernizacion_3" value="3" class="form-check-input">
+                        <label for="infraestructura_modernizacion_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="infraestructura_modernizacion" id="infraestructura_modernizacion_4" value="4" class="form-check-input">
+                        <label for="infraestructura_modernizacion_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="infraestructura_modernizacion" id="infraestructura_modernizacion_5" value="5" class="form-check-input">
+                        <label for="infraestructura_modernizacion_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Diversificación de servicios -->
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+                <label for="diversificacion_servicios" class="me-3">Diversificación de servicios</label>
+                <div class="d-flex">
+                    <div class="form-check me-2">
+                        <input type="radio" name="diversificacion_servicios" id="diversificacion_servicios_1" value="1" class="form-check-input">
+                        <label for="diversificacion_servicios_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="diversificacion_servicios" id="diversificacion_servicios_2" value="2" class="form-check-input">
+                        <label for="diversificacion_servicios_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="diversificacion_servicios" id="diversificacion_servicios_3" value="3" class="form-check-input">
+                        <label for="diversificacion_servicios_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="diversificacion_servicios" id="diversificacion_servicios_4" value="4" class="form-check-input">
+                        <label for="diversificacion_servicios_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="diversificacion_servicios" id="diversificacion_servicios_5" value="5" class="form-check-input">
+                        <label for="diversificacion_servicios_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Nuevos espacios deportivos -->
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+                <label for="nuevos_espacios_deportivos" class="me-3">Nuevos espacios deportivos</label>
+                <div class="d-flex">
+                    <div class="form-check me-2">
+                        <input type="radio" name="nuevos_espacios_deportivos" id="nuevos_espacios_deportivos_1" value="1" class="form-check-input">
+                        <label for="nuevos_espacios_deportivos_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="nuevos_espacios_deportivos" id="nuevos_espacios_deportivos_2" value="2" class="form-check-input">
+                        <label for="nuevos_espacios_deportivos_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="nuevos_espacios_deportivos" id="nuevos_espacios_deportivos_3" value="3" class="form-check-input">
+                        <label for="nuevos_espacios_deportivos_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check me-2">
+                        <input type="radio" name="nuevos_espacios_deportivos" id="nuevos_espacios_deportivos_4" value="4" class="form-check-input">
+                        <label for="nuevos_espacios_deportivos_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="nuevos_espacios_deportivos" id="nuevos_espacios_deportivos_5" value="5" class="form-check-input">
+                        <label for="nuevos_espacios_deportivos_5" class="form-check-label">5</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="preferencias_necesidades">
+                <!-- Servicios que gustaría incluir -->
+                <div class="mb-4">
+                    <h6>¿Qué servicios te gustaría que el club incluyera en el futuro?</h6>
+                    <div class="form-check">
+                        <input type="checkbox" id="mas_actividades_deportivas" name="servicios_futuros[]" value="mas_actividades_deportivas" class="form-check-input">
+                        <label for="mas_actividades_deportivas" class="form-check-label">Más actividades deportivas</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="experiencias_culturales" name="servicios_futuros[]" value="experiencias_culturales" class="form-check-input">
+                        <label for="experiencias_culturales" class="form-check-label">Experiencias culturales o artísticas</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="nuevas_opciones_gastronomicas" name="servicios_futuros[]" value="nuevas_opciones_gastronomicas" class="form-check-input">
+                        <label for="nuevas_opciones_gastronomicas" class="form-check-label">Nuevas opciones gastronómicas</label>
+                    </div>
+                </div>
+            
+                <!-- Pago compensado por servicios -->
+                <div class="mb-4">
+                    <h6>¿Consideras que lo que pagas es compensado por los servicios recibidos?</h6>
+                    <div class="form-check">
+                        <input type="radio" id="pago_compensado_si" name="pago_compensado" value="si" class="form-check-input">
+                        <label for="pago_compensado_si" class="form-check-label">Sí</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="pago_compensado_no" name="pago_compensado" value="no" class="form-check-input">
+                        <label for="pago_compensado_no" class="form-check-label">No</label>
+                    </div>
+                    <div class="mt-2">
+                        <label for="pago_compensado_explicacion" class="form-label">¿Nos puedes explicar tu respuesta?</label>
+                        <textarea id="pago_compensado_explicacion" name="pago_compensado_explicacion" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+            
+                <!-- Motivación para usar más el club -->
+                <div class="mb-4">
+                    <h6>¿Qué te motivaría a usar más el club?</h6>
+                    <textarea id="motivacion_uso_club" name="motivacion_uso_club" rows="3" class="form-control" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <div class="despedida text-center mt-4">
+                <p class="mb-3">Muchas gracias por tu respuesta, estamos para servirte.</p>
+                <button type="submit" class="btn btn-primary">Enviar formulario</button>
+            </div>
+
+        </div> 
+
+    </form>
+        
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script/Elementos_no_repetidos-A.js"></script>
+    <script src="script/Elementos_no_repetidos-B.js"></script>
+</body>
+</html>
+
